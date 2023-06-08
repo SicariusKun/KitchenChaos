@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7697247049775372745}
   - component: {fileID: 4598878057211854731}
   - component: {fileID: 6859016390075351982}
+  - component: {fileID: 8524123094421691909}
+  - component: {fileID: 8876743178423491361}
   m_Layer: 5
   m_Name: PlateIconsUI
   m_TagString: Untagged
@@ -127,6 +129,33 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &8524123094421691909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913456452115190421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19e3067d7d7128438ffcd4fd65f1303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plateKitchenObject: {fileID: -2406694505618554174}
+  iconTemplate: {fileID: 2497090133264899767}
+--- !u!114 &8876743178423491361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913456452115190421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72c88a16a8f532499074bd1dc472c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 2
 --- !u!1 &3237052630665080619
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2497090133264899767}
+  - component: {fileID: 6955875004123644948}
   m_Layer: 5
   m_Name: IconTemplate
   m_TagString: Untagged
@@ -297,6 +327,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6955875004123644948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864339342181546503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccce2dbb7a100ff4a9dc69bc2223a524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 7770464386816444796}
 --- !u!1 &8660948506952263689
 GameObject:
   m_ObjectHideFlags: 0
