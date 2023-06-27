@@ -110,11 +110,13 @@ public class KitchenGameManager : MonoBehaviour
         {
             Time.timeScale = 0f;
             OnGamePaused?.Invoke(this, EventArgs.Empty);
+            StoveCounterSound.Instance.MuteSizzleVolume();
         }
         else
         {
             Time.timeScale = 1f;
             OnGameUnpaused?.Invoke(this, EventArgs.Empty);
+            StoveCounterSound.Instance.UpdateSizzleVolume();
         }
     }
 }

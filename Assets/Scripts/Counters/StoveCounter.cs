@@ -174,7 +174,7 @@ public class StoveCounter : BaseCounter, IHasProgress
         return fryingRecipeSO != null;
     }
 
-    private KitchenObjectSO GetOutPutForInput(KitchenObjectSO inputKitchenObjectSO)
+    private KitchenObjectSO GetOutputForInput(KitchenObjectSO inputKitchenObjectSO)
     {
         FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(inputKitchenObjectSO);
         if (fryingRecipeSO != null)
