@@ -37,8 +37,6 @@ public class GamePauseUI : MonoBehaviour
 
     private void KitchenGameManager_OnGamePaused(object sender, System.EventArgs e)
     {
-        StoveCounterSound.Instance.MuteSizzleVolume();
-
         Show();
     }
 
