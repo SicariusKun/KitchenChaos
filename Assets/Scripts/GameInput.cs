@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameInput : MonoBehaviour
 {
@@ -88,5 +89,22 @@ public class GameInput : MonoBehaviour
             case Binding.Pause:
                 return playerInputActions.Player.Pause.bindings[0].ToDisplayString();
         }
+    }
+
+    public void RebindBinding(Binding binding)
+    {
+        playerInputActions.Player.Disable();
+
+        playerInputActions.Player.Move.PerformInteractiveRebinding(1)
+            .OnComplete(callback => {
+                Debug.Log(callback.action.bindings[1].path);
+                Debug.Log(callback.action.bindings[1].overridePath);
+                callback.Dispose();
+                playerInputActions.Player.Enable();
+            })
+            .Start();
+
+
+
     }
 }
