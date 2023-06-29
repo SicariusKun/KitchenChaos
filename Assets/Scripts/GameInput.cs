@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class GameInput : MonoBehaviour
 {
+    private const string PLAYER_PREFS_BINDINGS = "InputBindings";
+
     public static GameInput Instance { get; private set; }
 
     public enum Binding
@@ -29,6 +31,13 @@ public class GameInput : MonoBehaviour
         Instance = this;
 
         playerInputActions = new PlayerInputActions();
+
+
+        if (PlayerPrefs.HasKey(PLAYER_PREFS_BINDINGS))
+        {
+            playerInputActions.LoadBindingOverridesFromJson(PlayerPrefs.GetString(PLAYER_PREFS_BINDINGS));
+        }
+
         playerInputActions.Player.Enable();
 
         playerInputActions.Player.Interact.performed += Interact_performed;
@@ -91,16 +100,54 @@ public class GameInput : MonoBehaviour
         }
     }
 
-    public void RebindBinding(Binding binding)
+    public void RebindBinding(Binding binding, Action onActionRebound)
     {
         playerInputActions.Player.Disable();
 
-        playerInputActions.Player.Move.PerformInteractiveRebinding(1)
+        InputAction inputAction;
+        int bindingIndex;
+
+        switch (binding)
+        {
+            default:
+            case Binding.Move_Up:
+                inputAction = playerInputActions.Player.Move;
+                bindingIndex = 1;
+                break;
+            case Binding.Move_Down:
+                inputAction = playerInputActions.Player.Move;
+                bindingIndex = 2;
+                break;
+            case Binding.Move_Left:
+                inputAction = playerInputActions.Player.Move;
+                bindingIndex = 3;
+                break;
+            case Binding.Move_Right:
+                inputAction = playerInputActions.Player.Move;
+                bindingIndex = 4;
+                break;
+            case Binding.Interact:
+                inputAction = playerInputActions.Player.Interact;
+                bindingIndex = 0;
+                break;
+            case Binding.InteractAlternate:
+                inputAction = playerInputActions.Player.InteractAlternate;
+                bindingIndex = 0;
+                break;
+            case Binding.Pause:
+                inputAction = playerInputActions.Player.Pause;
+                bindingIndex = 0;
+                break;
+        }
+
+        inputAction.PerformInteractiveRebinding(bindingIndex)
             .OnComplete(callback => {
-                Debug.Log(callback.action.bindings[1].path);
-                Debug.Log(callback.action.bindings[1].overridePath);
                 callback.Dispose();
                 playerInputActions.Player.Enable();
+                onActionRebound();
+
+                PlayerPrefs.SetString(PLAYER_PREFS_BINDINGS, playerInputActions.SaveBindingOverridesAsJson());
+                PlayerPrefs.Save();
             })
             .Start();
 

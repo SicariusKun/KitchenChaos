@@ -4114,7 +4114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &512231342
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6098,7 +6098,7 @@ MonoBehaviour:
   interactAlternateButtonText: {fileID: 1653459650}
   pauseButtonText: {fileID: 2022182960}
   closeButtonText: {fileID: 420727137}
-  pressToRebindKeyTransform: {fileID: 0}
+  pressToRebindKeyTransform: {fileID: 512231342}
 --- !u!1 &992397730
 GameObject:
   m_ObjectHideFlags: 0
